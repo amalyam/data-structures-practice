@@ -4,21 +4,42 @@ function insertionSort(arr) {
   /*
   Pseudocode:
 
-  Copy the original array
-  Create an array to store the sorted values
-  While the array is not empty:
-  - make sure you have a console.log(sorted.join(',')) as your first line in the while loop
-  - Pop a value from the array
-  - Create a new spot at the end of the array with null to help with comparisons
-  - Walk through the sorted array in reverse order
-  - Check if the value to the left is smaller than the new value
-  - If so, you've reached the insertion point so exit the loop
-  - If not shift the value to the right by 1 and continue
-  - Insert the unsorted value at the break point
-  Return the sorted array
+- Copy the original array
+- Create an array to store the sorted values
+- While the array is not empty:
+- Pop a value from the array
+- Walk through the sorted array in reverse order
+- Check if the current value in the sorted array is greater than the new value
+- If so, shift the current value to the right by 1 and continue
+- If not, or if you've reached the beginning of the sorted array, insert the new value at the current position and exit the loop
+- Return the sorted array
   */
 
-  // Your code here
+  let arrCopy = [...arr];
+  let sorted = [];
+  let insertion;
+
+  if (!sorted.length) {
+    sorted.push(arrCopy.pop());
+  }
+
+  while (arrCopy.length > 0) {
+    console.log(sorted.join(","));
+    let temp = arrCopy.pop();
+    sorted.push(null);
+
+    for (let i = sorted.length - 1; i >= 0; i--) {
+      if (sorted[i - 1] < temp || i === 0) {
+        insertion = i;
+        break;
+      } else {
+        sorted[i] = sorted[i - 1];
+      }
+    }
+    sorted[insertion] = temp;
+  }
+
+  return sorted;
 }
 
 // In-place Insertion Sort
@@ -39,7 +60,6 @@ function insertionSortInPlace(arr) {
   - Increment the dividing pointer and repeat
   Return the mutated array
   */
-
   // Your code here
 }
 
