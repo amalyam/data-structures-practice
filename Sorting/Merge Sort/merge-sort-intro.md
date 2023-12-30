@@ -1,5 +1,4 @@
 Merge Sort
-1 user recently completed this Reading
 
 So far, you've gone over some fairly inefficient methods of sorting an array. In this reading, you will explore a more time-efficient method of sorting: merge sort.
 The merge sort algorithm
