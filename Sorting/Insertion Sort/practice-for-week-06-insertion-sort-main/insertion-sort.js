@@ -42,7 +42,7 @@ function insertionSort(arr) {
   return sorted;
 }
 
-console.log(insertionSort([2, 4, 6, 8, 1, 3, 5, 7, 9]));
+//console.log(insertionSort([2, 4, 6, 8, 1, 3, 5, 7, 9]));
 
 // In-place Insertion Sort
 // Mutates the original array
@@ -62,8 +62,25 @@ function insertionSortInPlace(arr) {
   - Increment the dividing pointer and repeat
   Return the mutated array
   */
+
+  let divider = 1;
+  while (divider <= arr.length) {
+    console.log(arr.join(","));
+    for (let i = 0; i < divider; i++) {
+      let temp = arr[divider];
+      let current = arr[i];
+      if (current > temp) {
+        arr[divider] = current;
+        arr[i] = temp;
+      }
+    }
+    divider++;
+  }
+  return arr;
 }
 
+//console.log(insertionSortInPlace([2, 4, 6, 8, 1, 3, 5, 7, 9]));
+console.log(insertionSortInPlace([3, 2, 0, 4, 1]));
 /*
   More efficient pseudocode for out-of-place insertion sort:
 
