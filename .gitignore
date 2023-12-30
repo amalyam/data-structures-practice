@@ -131,3 +131,6 @@ dist
 
 # compressed files
 .zip
+
+# desktop services
+.DS_Store
