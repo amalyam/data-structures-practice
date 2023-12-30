@@ -22,7 +22,8 @@ function factorial(n) {
 The recursive call is factorial(n - 1) and the base case is if (n <= 1) return 1;. The n - 1 inside the recursive call moves the state closer to the base case with each recursive step, ensuring that your recursion returns without overflowing your stack.
 
 Remember these three steps because they are crucial to understanding recursive sorting algorithms.
-A recursive sorting example
+
+## A recursive sorting example
 
 Let's say you have an idea for a new sorting algorithm. Find and remove the largest value from the array, sort the remaining elements, then put the largest value in the back of the array and return. So given the array, [3, 2, 0, 4, 1], first you remove the largest element, 4, sort the rest, which turns [3, 2, 0, 1] into [0, 1, 2, 3], then add the 4 back to the end and return [0, 1, 2, 3, 4]. Will this work?
 
@@ -76,8 +77,9 @@ Testing with recursiveSort([3, 2, 0, 4, 1]) correctly returns [0, 1, 2, 3, 4]. L
 
 Let's start with the time complexity of recursiveSort. Each recursive call sorts one value, so there will be n total recursive calls to sort an array of length n. Each call iterates through the entire array to find the max value which is O(n), then splices out the max value which is also O(n). These are not nested, so the overall time complexity of each call is O(2n), or just O(n) since coefficients are ignored. Since this is called n times through recursion, the overall time complexity is O(n2).
 
-Since arr.splice and arr.push both mutate the original array and no new arrays are created, this algorithm works in-place with each call using O(1) extra space. However, you may recall that each function is stored in memory on the call stack_ while it waits for later recursive functions to resolve. Since there are n recursive steps, this function will occupy O(n) space on the call stack.
-Divide and Conquer: Improving time complexity
+Since arr.splice and arr.push both mutate the original array and no new arrays are created, this algorithm works in-place with each call using O(1) extra space. However, you may recall that each function is stored in memory on the call stack\_ while it waits for later recursive functions to resolve. Since there are n recursive steps, this function will occupy O(n) space on the call stack.
+
+## Divide and Conquer: Improving time complexity
 
 The time complexity of recursiveSort is O(n2). Is there a way to improve that?
 
