@@ -10,7 +10,8 @@ Here are the steps to sort an array with insertion sort:
     Repeat this until unsorted is empty and sorted is full
 
 There's two ways you can go about this, out-of-place or in-place.
-Out-of-place insertion sort (easy)
+
+## Out-of-place insertion sort (easy)
 
 Let's say you want to sort the array [3, 2, 0, 4, 1] using out-of-place insertion sort. Start by creating an empty array called sorted.
 
@@ -40,7 +41,6 @@ arr = [4, 1]
 sorted = [0, 2, 3]
 ```
 
-
 Next comes 4, which goes at the end.
 
 ```
@@ -56,7 +56,8 @@ sorted = [0, 1, 2, 3, 4]
 ```
 
 Now that the input array is empty, the sorted array is complete and can be returned.
-In-place insertion sort (medium)
+
+## In-place insertion sort (medium)
 
 Because the out-of-place insertion sort creates a new array, the space complexity is O(n). It's possible to perform this algorithm in-place, meaning in O(1) space using no extra memory. How is this possible? The answer involves mutating the input array.
 
@@ -136,7 +137,8 @@ temp = 1
 With the 1 stored, the algorithm begins to check each sorted value from right to left, shifting each larger value by 1. First goes the 4, making the array [0, 2, 3, 4, 4]. Next is the 3: [0, 2, 3, 3, 4], then the 2: [0, 2, 2, 3, 4]. The 0 is smaller so the loop can stop and the temp value can be inserted: [0, 1, 2, 3, 4]. Now the divider increments to the end of the array and the insertion sort can exit and return.
 
 Note that both out-of-place and in-place insertion sorts have time complexities of O(n2). Can you figure out why?
-Your task
+
+## Your task
 
 Your task is to implement insertionSort. Try the out-of-place insertion sort first, then try to solve it in-place. Here is the pseudocode for the in-place version. Good luck!
 
