@@ -38,9 +38,11 @@ function insertionSort(arr) {
     }
     sorted[insertion] = temp;
   }
-
+  console.log(sorted.join(","));
   return sorted;
 }
+
+console.log(insertionSort([2, 4, 6, 8, 1, 3, 5, 7, 9]));
 
 // In-place Insertion Sort
 // Mutates the original array
@@ -62,5 +64,44 @@ function insertionSortInPlace(arr) {
   */
   // Your code here
 }
+
+/*
+  More efficient pseudocode:
+
+- Create a copy of the original array
+- Create an array to store the sorted values
+- For each value in the copied array:
+- Walk through the sorted array in reverse order
+- Check if the current value in the sorted array is greater than the new value
+- If so, shift the current value to the right by 1 and continue
+- If not, or if you've reached the beginning of the sorted array, insert the new value at the current position and exit the loop
+- Return the sorted array
+
+
+let arrCopy = [...arr];
+let sorted = [];
+let counter = arrCopy.length - 1;
+let insertion;
+
+while (counter >= 0) {
+  console.log(sorted.join(","));
+  let temp = arrCopy[counter];
+  sorted.push(null);
+
+  for (let i = sorted.length - 1; i >= 0; i--) {
+    if (sorted[i - 1] < temp || i === 0) {
+      insertion = i;
+      break;
+    } else {
+      sorted[i] = sorted[i - 1];
+    }
+  }
+  sorted[insertion] = temp;
+  counter--;
+}
+
+return sorted;
+}
+*/
 
 module.exports = [insertionSort, insertionSortInPlace];
