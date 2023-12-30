@@ -11,19 +11,16 @@ function selectionSort(arr) {
     console.log(sorted.join(","));
 
     // Find the index of the minimum value in the unsorted half
-    let minVal;
-    if (sorted[0]) {
-      minVal = sorted[0];
-    } else {
-      minVal = arrCopy[0];
-    }
+    let minVal = arrCopy[0];
+
     arrCopy.forEach((number) => {
       if (number < minVal) {
         minVal = number;
       }
     });
     // Save and remove the value at the min index
-    arrCopy = arrCopy.filter((number) => number !== minVal);
+    let mindIndex = arrCopy.indexOf(minVal);
+    arrCopy.splice(mindIndex, 1);
 
     // Add the min value to the end of the sorted array
     sorted.push(minVal);
@@ -32,7 +29,7 @@ function selectionSort(arr) {
   return sorted;
 }
 
-//console.log(selectionSort([3, 2, 0, 4, 1]));
+console.log(selectionSort([3, 2, 0, 4, 1]));
 
 function selectionSortInPlace(arr) {
   // Set a pointer at zero dividing the array into sorted and unsorted halves
@@ -52,7 +49,7 @@ function selectionSortInPlace(arr) {
     });
 
     // Find the index of the minimum value in the unsorted half
-    let minValIndex = arr.join("").indexOf(`${minVal}`, divider);
+    let minValIndex = arr.indexOf(minVal, divider);
 
     // Shift every unsorted value to the left of the min value to the right by 1
     if (minValIndex) {
@@ -69,6 +66,6 @@ function selectionSortInPlace(arr) {
   return arr;
 }
 
-console.log(selectionSortInPlace([3, 2, 0, 4, 1]));
+//console.log(selectionSortInPlace([3, 2, 0, 4, 1]));
 
 module.exports = [selectionSort, selectionSortInPlace];
