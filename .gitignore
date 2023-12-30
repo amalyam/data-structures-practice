@@ -130,7 +130,7 @@ dist
 .pnp.*
 
 # compressed files
-.zip
+*.zip
 
 # desktop services
 .DS_Store
