@@ -62,11 +62,10 @@ function insertionSortInPlace(arr) {
   - Increment the dividing pointer and repeat
   Return the mutated array
   */
-  // Your code here
 }
 
 /*
-  More efficient pseudocode:
+  More efficient pseudocode for out-of-place insertion sort:
 
 - Create a copy of the original array
 - Create an array to store the sorted values
