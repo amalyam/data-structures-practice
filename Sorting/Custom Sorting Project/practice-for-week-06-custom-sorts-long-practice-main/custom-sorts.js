@@ -1,13 +1,19 @@
 function ageSort(users) {
-  // Your code here
+  return users.sort((a, b) => a.age - b.age);
 }
 
 function oddEvenSort(arr) {
-  // Your code here
+  return arr.sort((a, b) => {
+    if (a % 2 === 0 && b % 2 === 1) return 1;
+    if (a % 2 === 1 && b % 2 === 0) return -1;
+    return a - b;
+  });
 }
 
 function validAnagrams(s, t) {
-  // Your code here
+  if (s.length !== t.length) return false;
+
+  return [...s].sort().join("") === [...t].sort().join("");
 }
 
 function reverseBaseSort(arr) {
