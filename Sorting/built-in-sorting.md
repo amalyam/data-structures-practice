@@ -1,5 +1,4 @@
-Built-in Sorts
-1 user recently completed this Reading
+# Built-in Sorts
 
 Now that you've learned how to implement various sorting algorithms, it's finally time to learn how to use JavaScript's built-in sort function.
 What algorithm does JavaScript use to sort?
@@ -32,7 +31,8 @@ nums = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024];
 nums.sort(compareNumbers);
 
 This works because if a is larger than b, a - b returns a positive value, and b is sorted ahead of a. Otherwise, a - b is negative and the values of a and b are not swapped, maintaining their order.
-Funky sorting with JavaScript's sort
+
+## Funky sorting with JavaScript's sort
 
 JavaScript's built-in sort can be very powerful! Recall this problem describing even/odd sort.
 
