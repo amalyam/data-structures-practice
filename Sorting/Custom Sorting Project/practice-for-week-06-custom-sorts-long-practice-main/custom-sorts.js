@@ -24,12 +24,33 @@ function validAnagrams(s, t) {
 }
 
 function reverseBaseSort(arr) {
-  // Your code here
+  return arr.sort((a, b) => {
+    if (a.toString().length > b.toString().length) return -1;
+    if (a.toString().length < b.toString().length) return 1;
+    return a - b;
+  });
 }
 
 function frequencySort(arr) {
-  // Your code here
+  let numberTable = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!numberTable[arr[i]]) {
+      numberTable[arr[i]] = 1;
+    } else {
+      numberTable[arr[i]]++;
+    }
+  }
+
+  return arr.sort((a, b) => {
+    if (numberTable[a] === numberTable[b]) return b - a;
+    return numberTable[a] - numberTable[b];
+  });
 }
+
+console.log([1, 1, 2, 2, 2, 3]);
+console.log([2, 3, 1, 3, 2]);
+console.log([-1, 1, -6, 4, 5, -6, 1, 4, 1]);
 
 module.exports = [
   oddEvenSort,
