@@ -13,7 +13,14 @@ function oddEvenSort(arr) {
 function validAnagrams(s, t) {
   if (s.length !== t.length) return false;
 
-  return [...s].sort().join("") === [...t].sort().join("");
+  const sortedS = [...s].sort();
+  const sortedT = [...t].sort();
+
+  for (let i = 0; i < sortedS.length; i++) {
+    if (sortedS[i] !== sortedT[i]) return false;
+  }
+
+  return true;
 }
 
 function reverseBaseSort(arr) {
