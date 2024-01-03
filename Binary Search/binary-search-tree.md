@@ -1,6 +1,6 @@
 # Binary Search Trees (BST)
 
-A node-and-pointer-based ata structure, similar to a doubly linked list
+A node-and-pointer-based data structure, similar to a doubly linked list
 Allows for the same O(log n) search as a sorted array, but with O(log n) insertion ad deletion as well
 Consists of nodes which each contain a value and two pointers (left + right) which always point downward
 
