@@ -44,25 +44,68 @@ class BinarySearchTree {
   }
 
   preOrderTraversal(currentNode = this.root) {
-    // Your code here
+    if (!currentNode) return;
+
+    console.log(currentNode.val);
+
+    if (currentNode.left) this.preOrderTraversal(currentNode.left);
+    if (currentNode.right) this.preOrderTraversal(currentNode.right);
   }
 
   inOrderTraversal(currentNode = this.root) {
-    // Your code here
+    if (!currentNode) return;
+
+    if (currentNode.left) this.inOrderTraversal(currentNode.left);
+
+    console.log(currentNode.val);
+
+    if (currentNode.right) this.inOrderTraversal(currentNode.right);
   }
 
   postOrderTraversal(currentNode = this.root) {
-    // Your code here
+    if (!currentNode) return;
+
+    if (currentNode.left) this.postOrderTraversal(currentNode.left);
+
+    if (currentNode.right) this.postOrderTraversal(currentNode.right);
+
+    console.log(currentNode.val);
   }
 
   // Breadth First Traversal - Iterative
   breadthFirstTraversal() {
-    // your code here
+    const queue = [];
+    if (this.root) queue.push(this.root);
+
+    while (queue.length > 0) {
+      let node = queue.shift();
+      if (node) {
+        console.log(node.val);
+
+        queue.push(node.left);
+        queue.push(node.right);
+      } else {
+        return;
+      }
+    }
   }
 
   // Depth First Traversal - Iterative
   depthFirstTraversal() {
-    // your code here
+    const stack = [];
+    if (this.root) stack.push(this.root);
+
+    while (stack.length > 0) {
+      let node = stack.pop();
+      if (node) {
+        console.log(node.val);
+
+        if (node.right) stack.push(node.left);
+        if (node.left) stack.push(node.right);
+      } else {
+        return;
+      }
+    }
   }
 }
 
