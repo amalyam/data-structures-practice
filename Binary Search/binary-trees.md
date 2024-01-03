@@ -1,5 +1,19 @@
 # Binary Trees
 
+Tree terminology
+
+    Node: A tree component that contains one value and pointers to other nodes
+    Edge: Another name for a pointer
+    Root node: The top node in a tree
+    Parent/child node: A parent node points to child nodes
+    Neighbor: Either a parent or child node
+    Subtree: A tree whose root is the child of another node in the tree
+    Branch node: A node with at least one child node
+    Leaf node: A node with no children
+    Level: The number of edges between a given node and the root node
+    Width: The number of nodes in a given level
+    Height: The number of edges between the root node and the bottom-most node
+
 ## Binary Tree Search
 
 Algorithm: 1. Base case: If the tree is null, return false 2. If the current node's value equals the target, return true 3. Otherwise, search the left subtree for the target 4. If the value isn't in the left subtree, try the right subtree
