@@ -35,8 +35,12 @@ class BinarySearchTree {
     }
   }
 
-  search(val) {
-    // Your code here
+  search(target, node = this.root) {
+    if (!node) return false;
+    if (node.val === target) return true;
+    if (target < node.val) return this.search(target, node.left);
+    if (target > node.val) return this.search(target, node.right);
+    return false;
   }
 
   preOrderTraversal(currentNode = this.root) {
