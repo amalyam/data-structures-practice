@@ -62,15 +62,38 @@ function findMaxBT(rootNode) {
 }
 
 function getHeight(rootNode) {
-  // Your code here
-}
-
-function balancedTree(rootNode) {
-  // Your code here
+  if (!rootNode) return -1;
+  if (!rootNode.left && !rootNode.right) {
+    return 0;
+  } else if (rootNode.left && rootNode.right) {
+    return 1 + Math.max(getHeight(rootNode.left), getHeight(rootNode.right));
+  } else if (!rootNode.left && rootNode.right) {
+    return 1 + getHeight(rootNode.right);
+  } else if (rootNode.left && !rootNode.right) {
+    return 1 + getHeight(rootNode.left);
+  }
 }
 
 function countNodes(rootNode) {
-  // Your code here
+  if (!rootNode) return 0;
+
+  const stack = [];
+  stack.push(rootNode);
+  let count = 0;
+
+  while (stack.length > 0) {
+    let node = stack.pop();
+    count++;
+
+    if (node.left) stack.push(node.left);
+    if (node.right) stack.push(node.right);
+  }
+
+  return count;
+}
+
+function balancedTree(rootNode) {
+  if (!rootNode) return true;
 }
 
 function getParentNode(rootNode, target) {
