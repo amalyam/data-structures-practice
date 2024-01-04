@@ -77,6 +77,12 @@ function getHeight(rootNode) {
 function countNodes(rootNode) {
   if (!rootNode) return 0;
 
+  // Recursive Solution
+  return 1 + countNodes(rootNode.left) + countNodes(rootNode.right);
+
+  /* 
+Stack Solution
+
   const stack = [];
   stack.push(rootNode);
   let count = 0;
@@ -89,7 +95,8 @@ function countNodes(rootNode) {
     if (node.right) stack.push(node.right);
   }
 
-  return count;
+  return count; 
+  */
 }
 
 function balancedTree(rootNode) {
