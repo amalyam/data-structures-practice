@@ -6,13 +6,13 @@ Download the starter at the bottom of this page
 
 ## Learning Goals
 
-* Construct a Binary Search Tree
-* Search for data in a Binary Search Tree in logarithmic time
-* Describe the properties and functionality of a Binary Tree
-* Describe the properties and functionality of a Tree
-* Traverse a Binary Tree in pre-order, in-order and post-order
-* Traverse and Search a Tree in both Depth and Breadth-First order
-* Solve coding challenges involving trees
+- Construct a Binary Search Tree
+- Search for data in a Binary Search Tree in logarithmic time
+- Describe the properties and functionality of a Binary Tree
+- Describe the properties and functionality of a Tree
+- Traverse a Binary Tree in pre-order, in-order and post-order
+- Traverse and Search a Tree in both Depth and Breadth-First order
+- Solve coding challenges involving trees
 
 ## Part 1: Practice Problems
 
@@ -68,6 +68,11 @@ Example:
     Output: -1
 ```
 
+### Count Nodes
+
+Fill out `countNodes` which takes the RootNode of a _binary tree_ and returns
+the number of Nodes contained in the tree.
+
 ### Balanced Binary Tree
 
 Given a binary tree, determine if it is height-balanced.
@@ -114,12 +119,6 @@ Example:
     Output: True
 ```
 
-
-### Count Nodes
-
-Fill out `countNodes` which takes the RootNode of a _binary tree_ and returns
-the number of Nodes contained in the tree.
-
 ### Get Parent Node
 
 Fill out `getParentNode` which takes the RootNode of a _binary tree_ and a
@@ -130,7 +129,6 @@ If the target cannot be found in the tree, `getParentNode` should return
 
 If the target is in the tree but has no parent, `getParentNode` should return
 `null`.
-
 
 ### In-Order Predecessor
 
@@ -167,7 +165,7 @@ replace the target Node's value with its in-order
 _predecessor_ or _successor_, then delete the in-order
 predecessor or successor you used.
 You may need to do some additional research for
- details on this operation.
+details on this operation.
 
 If the target value is not in the tree, return `undefined`.
 
