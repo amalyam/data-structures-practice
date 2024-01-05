@@ -101,6 +101,14 @@ Stack Solution
 
 function balancedTree(rootNode) {
   if (!rootNode) return true;
+  if (!rootNode.left && !rootNode.right) return true;
+
+  const leftHeight = getHeight(rootNode.left);
+  const rightHeight = getHeight(rootNode.right);
+
+  if (Math.abs(leftHeight - rightHeight) > 1) return false;
+
+  return balancedTree(rootNode.left) && balancedTree(rootNode.right);
 }
 
 function getParentNode(rootNode, target) {
