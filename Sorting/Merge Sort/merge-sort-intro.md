@@ -70,7 +70,8 @@ return: [1, 2]
 ...
 
 This performs the merge without mutating the original arrays and gives merge a time complexity of O(n).
-Calling a sort within a sort
+
+## Calling a sort within a sort
 
 Can you think of a technique you learned that calls a function from within itself?
 
