@@ -112,28 +112,113 @@ function balancedTree(rootNode) {
 }
 
 function getParentNode(rootNode, target) {
-  // Your code here
+  if (rootNode.val === target) return null;
+  if (rootNode.left && rootNode.left.val === target) return rootNode;
+  if (rootNode.right && rootNode.right.val === target) return rootNode;
+
+  let left = null;
+  let right = null;
+
+  if (rootNode.left) {
+    left = getParentNode(rootNode.left, target);
+  }
+  if (rootNode.right) {
+    right = getParentNode(rootNode.right, target);
+  }
+  if (left === null && right === null) return undefined;
+
+  return left || right;
 }
 
+/* 
+// Correct code for a _binary tree_
+function inOrderPredecessor(rootNode, target, prevNode = null) {
+  if (rootNode === null) return null;
+
+  if (rootNode.left) {
+    let result = inOrderPredecessor(rootNode.left, target, rootNode);
+    if (result !== undefined) return result;
+  }
+
+  if (rootNode.val === target) return prevNode ? prevNode.val : null;
+
+  if (rootNode.right) {
+    let result = inOrderPredecessor(rootNode.right, target, rootNode);
+    if (result !== undefined) return result;
+  }
+
+  return null;
+} */
+
+// Code for a binary _search_ tree
 function inOrderPredecessor(rootNode, target) {
-  // Your code here
+  let targetNode = findNode(rootNode, target);
+  if (targetNode === null) return null;
+
+  if (targetNode.left !== null) {
+    return findMaxNode(targetNode.left).val;
+  } else {
+    let ancestor = findAncestor(rootNode, target);
+    return ancestor ? ancestor.val : null;
+  }
 }
 
-function deleteNodeBST(rootNode, target) {
+function findNode(node, target) {
+  if (node === null || node.val === target) return node;
+  if (target < node.val) return findNode(node.left, target);
+  return findNode(node.right, target);
+}
+
+function findMaxNode(node) {
+  while (node.right !== null) node = node.right;
+  return node;
+}
+
+function findAncestor(node, target, parent = null) {
+  if (node === null) return null;
+  if (target < node.val) return findAncestor(node.left, target, parent);
+  if (target > node.val) return findAncestor(node.right, target, node);
+  return parent;
+}
+
+function deleteNodeBST(rootNode, target, parentNode = null) {
   // Do a traversal to find the node. Keep track of the parent
-  // Undefined if the target cannot be found
+  if (rootNode === null) return null;
+
   // Set target based on parent
-  // Case 0: Zero children and no parent:
-  //   return null
-  // Case 1: Zero children:
-  //   Set the parent that points to it to null
-  // Case 2: Two children:
-  //  Set the value to its in-order predecessor, then delete the predecessor
-  //  Replace target node with the left most child on its right side,
-  //  or the right most child on its left side.
-  //  Then delete the child that it was replaced with.
-  // Case 3: One child:
-  //   Make the parent point to the child
+  if (rootNode.val === target) {
+    // Case 0: Zero children and no parent:
+    //   return null
+    if (!rootNode.left && !rootNode.right && !parentNode) return null;
+
+    // Case 1: Zero children:
+    //   Set the parent that points to it to null
+    if (!rootNode.left && !rootNode.right) {
+      if (parentNode.left === rootNode) parentNode.left = null;
+      if (parentNode.right === rootNode) parentNode.right = null;
+    }
+
+    // Case 2: Two children:
+    if (rootNode.left && rootNode.right) {
+      //  Set the value to its in-order predecessor, then delete the predecessor
+      //  Replace target node with the left most child on its right side,
+      //  or the right most child on its left side.
+      //  Then delete the child that it was replaced with.
+      if (rootNode.left.val < rootNode.val) {
+        rootNode.val = rootNode.left.val;
+        rootNode.left.val = null;
+      }
+      if (rootNode.right.val < rootNode.val) {
+        rootNode.val = rooNode.right.val;
+        rootNode.right.val = null;
+      }
+    }
+    // Case 3: One child:
+    //   Make the parent point to the child
+  }
+
+  // Undefined if the target cannot be found
+  return undefined;
 }
 
 module.exports = {
